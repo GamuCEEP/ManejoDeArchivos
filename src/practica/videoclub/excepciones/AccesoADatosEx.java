@@ -5,6 +5,9 @@
  */
 package practica.videoclub.excepciones;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.List;
 import practica.videoclub.dominio.Pelicula;
 
@@ -26,7 +29,13 @@ public class AccesoADatosEx {
         return null;
     }
     public void crear(String nombreArchivo){
-        
+        File archivo = new File(nombreArchivo);
+        try{
+            PrintWriter salida = new PrintWriter(archivo);            
+            salida.close();
+        }catch(FileNotFoundException e){
+            e.printStackTrace(System.err);
+        }
     }
     public void borrar(String nombreArchivo){
         
