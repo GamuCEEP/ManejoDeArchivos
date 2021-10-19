@@ -10,7 +10,16 @@ package practica.videoclub;
  * @author Alumno Mañana
  */
 public class VideoClub {
-    public static void main(String[] args) {
-        
-    }
+//    public static void main(String[] args) {
+//        
+//    }
+    /*
+    Supongo que falta el paquete de ui
+    Menu:
+    opc1->iniciar catalogo
+    opc2->agregar una pelicula
+    opc3->listar paliculas
+    opc4->bucar una pelicula
+    opc0->salir
+    */
 }

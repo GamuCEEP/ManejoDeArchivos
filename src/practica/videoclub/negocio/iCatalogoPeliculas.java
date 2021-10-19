@@ -10,5 +10,8 @@ package practica.videoclub.negocio;
  * @author Alumno Mañana
  */
 public interface iCatalogoPeliculas {
-    
+    public void agregarPelicula(String nombrePelicula, String nombreArchivo);
+    public void listarPeliculas(String nombreArchivo);
+    public void buscarPelicula(String nombreArchivo, String busqueda);
+    public void iniciarCatalogo(String nombreArchivo);
 }

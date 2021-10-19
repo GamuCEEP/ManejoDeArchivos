@@ -4,17 +4,33 @@
  * and open the template in the editor.
  */
 package teoria.test;
-import static teoria.manejodearchivos.ManejoDeArchivos.*;
+import practica.videoclub.datos.*;
+import practica.videoclub.dominio.Pelicula;
+
 /**
  *
  * @author Alumno Mañana
  */
 public class Test {
     public static void main(String[] args) {
-        String nombreArchivo = "Prueba.txt";
+        iAccesoADatos test = new AccesoADatosImp();
+        String nombreArchivo = "BaseDeDatosVideoclub";
         
-        //createFile(nombreArchivo);
-        appendToFile(nombreArchivo, "textasdrueba");
-        readFile(nombreArchivo);
+        
+        try {
+            test.crear(nombreArchivo);
+            assert test.existe(nombreArchivo) == true;
+            test.escribir(new Pelicula("Titanic"), nombreArchivo, true);
+            test.escribir(new Pelicula("Matrix"), nombreArchivo, true);
+            test.escribir(new Pelicula("Pokemon"), nombreArchivo, true);
+            assert test.buscar(nombreArchivo, "Titanic") != null;
+            assert test.buscar(nombreArchivo, "tiTaNic") != null;
+            test.borrar(nombreArchivo);
+            assert test.existe(nombreArchivo);
+            
+        } catch (Exception e) {
+            
+        }
+        
     }
 }

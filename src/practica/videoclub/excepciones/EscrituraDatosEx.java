@@ -9,6 +9,8 @@ package practica.videoclub.excepciones;
  *
  * @author Alumno Mañana
  */
-public class EscrituraDatosEx {
-    
+public class EscrituraDatosEx extends AccesoADatosEx{
+    public EscrituraDatosEx(){
+        super("Hubo un error al escribir los datos");
+    }
 }

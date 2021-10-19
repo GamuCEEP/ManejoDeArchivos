@@ -9,6 +9,23 @@ package practica.videoclub.negocio;
  *
  * @author Alumno Mañana
  */
-public class CatalogoPeliculasImp {
+public class CatalogoPeliculasImp implements iCatalogoPeliculas{
+
+    @Override
+    public void agregarPelicula(String nombrePelicula, String nombreArchivo) {
+        
+    }
+
+    @Override
+    public void listarPeliculas(String nombreArchivo) {
+    }
+
+    @Override
+    public void buscarPelicula(String nombreArchivo, String busqueda) {
+    }
+
+    @Override
+    public void iniciarCatalogo(String nombreArchivo) {
+    }
     
 }

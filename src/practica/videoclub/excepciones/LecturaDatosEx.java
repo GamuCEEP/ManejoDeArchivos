@@ -9,6 +9,8 @@ package practica.videoclub.excepciones;
  *
  * @author Alumno Mañana
  */
-public class LecturaDatosEx {
-    
+public class LecturaDatosEx extends AccesoADatosEx{
+    public LecturaDatosEx(){
+        super("Error al leer los datos");
+    }
 }
