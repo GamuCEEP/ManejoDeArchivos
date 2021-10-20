@@ -28,4 +28,10 @@ public class Pelicula {
     public String toString() {
         return this.nombre;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.nombre.equals(((Pelicula)obj).nombre); 
+    }
+    
 }

@@ -6,6 +6,7 @@
 package practica.videoclub.datos;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.LinkedList;
 import java.util.List;
 import practica.videoclub.dominio.Pelicula;
@@ -107,11 +108,14 @@ public class AccesoADatosImp implements iAccesoADatos {
     public void borrar(String nombreArchivo) throws AccesoADatosEx {
         File archivo = new File(nombreArchivo);
         try {
-            archivo.delete();
+//            archivo.delete();
+            Files.delete(archivo.toPath());
             
         } catch (SecurityException e) {
             e.printStackTrace(System.err);
             throw new AccesoADatosEx("Error al borrar el archivo, \"" + nombreArchivo + "\" no se pudo borrar");
+        } catch (IOException e){
+            e.printStackTrace();
         }
 
     }

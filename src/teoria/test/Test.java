@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package teoria.test;
+import java.util.List;
 import practica.videoclub.datos.*;
 import practica.videoclub.dominio.Pelicula;
 
@@ -12,25 +13,23 @@ import practica.videoclub.dominio.Pelicula;
  * @author Alumno Mañana
  */
 public class Test {
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
+//        accesoADatosImp_test();
+//        
+//    }
+    private static void accesoADatosImp_test(){
+        System.out.println("Testeando accesoADatosImp");
         iAccesoADatos test = new AccesoADatosImp();
         String nombreArchivo = "BaseDeDatosVideoclub";
         
-        
+        Pelicula titanic = new Pelicula("Titanic");
+        Pelicula matrix = new Pelicula("Matrix");
         try {
             test.crear(nombreArchivo);
-            assert test.existe(nombreArchivo) == true;
-            test.escribir(new Pelicula("Titanic"), nombreArchivo, true);
-            test.escribir(new Pelicula("Matrix"), nombreArchivo, true);
-            test.escribir(new Pelicula("Pokemon"), nombreArchivo, true);
-            assert test.buscar(nombreArchivo, "Titanic") != null;
-            assert test.buscar(nombreArchivo, "tiTaNic") != null;
+            test.escribir(matrix, nombreArchivo, true);
             test.borrar(nombreArchivo);
-            assert test.existe(nombreArchivo);
-            
         } catch (Exception e) {
             
         }
-        
     }
 }
