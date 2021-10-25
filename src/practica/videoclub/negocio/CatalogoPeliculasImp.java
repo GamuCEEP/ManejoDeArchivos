@@ -48,7 +48,7 @@ public class CatalogoPeliculasImp implements iCatalogoPeliculas {
     @Override
     public void buscarPelicula(String nombreArchivo, String busqueda) {
         try {
-            String buscado = datos.buscar(nombreArchivo, busqueda);
+            String buscado = datos.buscar(nombreArchivo, busqueda, Pelicula.campos.NOMBRE);
             System.out.println("La pelicula " + (buscado != null ? buscado : "no se encontró"));
 
         } catch (LecturaDatosEx e) {

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package practica.videoclub.datos;
 
 import java.io.*;
@@ -12,10 +8,7 @@ import java.util.List;
 import practica.videoclub.dominio.Pelicula;
 import practica.videoclub.excepciones.*;
 
-/**
- *
- * @author Alumno Mañana
- */
+
 public class AccesoADatosImp implements iAccesoADatos {
 
     @Override
@@ -68,19 +61,18 @@ public class AccesoADatosImp implements iAccesoADatos {
     }
 
     @Override
-    public String buscar(String nombreArchivo, String busqueda) throws LecturaDatosEx{
+    public String buscar(String nombreArchivo, String busqueda, Pelicula.campos campo) throws LecturaDatosEx{
         File archivo = new File(nombreArchivo);
         try {
             BufferedReader entrada = new BufferedReader(new FileReader(archivo));
             String lectura;
             int contador = 0;
-            while ((lectura = entrada.readLine()) != null) {
+            while ((lectura = entrada.readLine().split(";")[campo.pos]) != null) {
                 if (lectura.equalsIgnoreCase(busqueda)) {
                     return lectura + " está en la linea " + contador;
                 }
                 contador++;
             }
-            
             entrada.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace(System.err);
@@ -117,6 +109,5 @@ public class AccesoADatosImp implements iAccesoADatos {
         } catch (IOException e){
             e.printStackTrace();
         }
-
     }
 }
